@@ -5,6 +5,12 @@ class TasksController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to project_path(@task.project_id)
+  end
+
   private
     def task_params
       params.require(:task).permit(:title)
