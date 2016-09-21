@@ -3,7 +3,8 @@
   <% @projects.each do |project| %>
     <li>
       <%= link_to project.title, project_path(project) %>
-      <%= link_to '[edit]', edit_project_path(project) %>
+      <%= link_to '[Edit]', edit_project_path(project) %>
+      <%= link_to '[Delete]', project_path(project), method: :delete, data: { confirm: "Are you sure?" }%>
     </li>
   <% end %>
 </ul>
